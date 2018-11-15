@@ -1,0 +1,14 @@
+[
+    {
+        "topicText": "Sample Topic Text 1",
+        "upVotes": 0,
+        "downVotes": 0,
+        "id": "1"
+    },
+    {
+        "topicText": "Sample Topic Text 2",
+        "upVotes": 0,
+        "downVotes": 0,
+        "id": "2"
+    }
+]
