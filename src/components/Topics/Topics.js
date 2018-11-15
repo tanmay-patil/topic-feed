@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
-import { getTopics, updateUpvote, updateDownvote } from '../../actions';
+import {
+    getTopics,
+    updateUpvote,
+    updateDownvote,
+    addTopic
+} from '../../actions';
 import Topic from '../Topic/';
 
 class Topics extends Component {
-    state = { topicText: '', upVote: '', downVote: '' };
+    state = { inputTopic: '' };
 
     componentDidMount() {
         this.props.getTopics();
@@ -19,6 +24,14 @@ class Topics extends Component {
         this.props.updateDownvote(id);
     }
 
+    addTopic(topicText) {
+        this.props.addTopic(topicText);
+    }
+
+    onChangeText(e) {
+        this.setState({ topicText: e.target.value });
+    }
+
     render() {
         const { topics } = this.props.currentStateTopics;
         return (
@@ -29,13 +42,14 @@ class Topics extends Component {
                         className="form-control"
                         name="inputTopic"
                         id="inputTopic"
+                        onChange={this.onChangeText.bind(this)}
                     />
                     <button
                         type="submit"
                         className="btn btn-primary mt-2"
                         name="submitTopic"
                         id="submitTopic"
-                        onClick={this.updateUpvote.bind(this, '2')}
+                        onClick={this.addTopic.bind(this, this.state.topicText)}
                     >
                         Submit
                     </button>
@@ -63,5 +77,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getTopics, updateUpvote, updateDownvote }
+    { getTopics, updateUpvote, updateDownvote, addTopic }
 )(Topics);

@@ -1,7 +1,8 @@
 import {
     GET_TOPICS,
     UPDATE_UPVOTE,
-    UPDATE_DOWNVOTE
+    UPDATE_DOWNVOTE,
+    ADD_TOPIC
 } from '../actions/actionTypes';
 
 const initialState = { topics: [] };
@@ -30,6 +31,18 @@ export default function(state = initialState, action) {
                     }
                     return topic;
                 })
+            };
+
+        case ADD_TOPIC:
+            let topic = {
+                topicText: action.payload,
+                upVotes: 0,
+                downVotes: 0,
+                id: state.topics.length + 1
+            };
+            return {
+                ...state,
+                topics: [topic, ...state.topics]
             };
 
         default:
