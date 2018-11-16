@@ -1,14 +1,14 @@
 [
     {
         "topicText": "Sample Topic Text 1",
-        "upVotes": 0,
-        "downVotes": 0,
+        "upVotes": 2,
+        "downVotes": 1,
         "id": 1
     },
     {
         "topicText": "Sample Topic Text 2",
-        "upVotes": 0,
-        "downVotes": 0,
+        "upVotes": 6,
+        "downVotes": 8,
         "id": 2
     }
 ]

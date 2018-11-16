@@ -10,7 +10,7 @@ import {
 import Topic from '../Topic/';
 
 class Topics extends Component {
-    state = { inputTopic: '' };
+    state = { topicText: '', isUpvoted: false, isDownvoted: false };
 
     componentDidMount() {
         this.props.getTopics();
